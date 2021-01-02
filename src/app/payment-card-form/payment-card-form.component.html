@@ -1,0 +1,33 @@
+<form [formGroup]="paymentCardForm" (ngSubmit)="onSubmit()">
+  <app-shared-input label="Name" [control]="paymentCardForm.get('name')"></app-shared-input>
+  <app-shared-input
+    label="Card Number"
+    [control]="paymentCardForm.get('cardNumber')"
+  ></app-shared-input>
+  <div class="columns">
+    <div class="column">
+      <app-shared-input
+        label="Expiration (MM/YY)"
+        [control]="paymentCardForm.get('expiration')"
+      ></app-shared-input>
+    </div>
+    <div class="column">
+      <app-shared-input
+        label="Security Code"
+        [control]="paymentCardForm.get('securityCode')"
+      ></app-shared-input>
+    </div>
+  </div>
+  <div class="buttons">
+    <button
+      class="button is-primary"
+      [disabled]="paymentCardForm.invalid"
+      type="submit"
+    >
+      Submit
+    </button>
+    <button class="button is-warning" type="button" (click)="onResetClick()">
+      Reset
+    </button>
+  </div>
+</form>
